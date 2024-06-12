@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Personal Trainer{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="sobremi">Sobre mí</a></li>
+                <li><a href="/"><img src="{{ url_for('static', filename='images/logojoseFinal.svg') }}" alt="Logo Personal Trainer"></a></li>
+                <li><a href="servicios">Servicios</a></li>
+                <li><a href="">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="logo-and-contact">
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='images/logojoseFinal.svg') }}" alt="Logo Footer">
+                </div>
+                <div class="contact-info">
+                    <h3>Contacto</h3>
+                    <p>Josefina Klaric</p>
+                    <p>Correo Electrónico</p>
+                    <p>Teléfono</p>
+                    <p><a href="/">www.wellnessbyjose.com.ar</a></p>
+                </div>
+            </div>
+            <div class="social">
+                <p>Seguime en</p>
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank">
+                        <img src="{{ url_for('static', filename='images/facebook.png') }}" alt="Facebook">
+                    </a>
+                    <a href="https://tiktok.com" target="_blank">
+                        <img src="{{ url_for('static', filename='images/tik-tok2.png') }}" alt="Tik-tok">
+                    </a>
+                    <a href="https://instagram.com" target="_blank">
+                        <img src="{{ url_for('static', filename='images/instagram.png') }}" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>

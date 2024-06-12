@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}Wellness by Jose{% endblock %}
+
+{% block content %}
+<div class="foto-titulo">
+    <div class="overlay">
+        <h1>Una cuestión de hábitos.</h1>
+        <a href="eligenos" class="btn-comenzar" onclick="scrollToSection('seccion1')">Comencemos ⭣</a>
+    </div>
+</div>
+<div class="eligenos" id="eligenos">
+    <div class="overlay-transparente">
+        <h1>¿Por qué elegirnos?</h1><br>
+        <p>
+            En Wellness by Jose, entendemos que cambiar tus hábitos o mejorar los que ya tienes puede ser todo un desafío. Es por eso que estamos acá para acompañarte en cada paso del camino, tanto en tu alimentación como en tu entrenamiento. ¿Entonces, por qué elegirnos?
+        </p>
+    </div>
+</div>
+<div class="sec-columnas">
+    <div class="columna">
+        <h3>Comprimiso total</h3>
+        <hr>
+        <p>Nos dedicamos por completo a ayudarte a alcanzar tus metas. Nuestro enfoque está en vos y en tu bienestar integral.
+        </p>
+    </div>
+    <div class="columna">
+        <h3>Personalizacion absoluta</h3>
+        <hr>
+        <p> Con nuestro acompañamiento personalizado, no solo te ofrecemos planes estándar, sino que nos comprometemos a escucharte y trabajar con vos para adaptar cada plan a tus objetivos, necesidades y posibilidades individuales. Tu éxito es nuestra prioridad.</p>
+    </div>
+    <div class="columna">
+        <h3>Conexion sin limites</h3>
+        <hr>
+        <p>Nuestra modalidad de trabajo a distancia te permite acceder a nuestros servicios estés donde estés. A través de la tecnología, estamos siempre disponibles para vos, sin importar la distancia.</p>
+    </div>
+    <div class="columna">
+        <h3>Perfeccionamiento constante</h3>
+        <hr>
+        <p>Nos esforzamos por estar siempre al día con los últimos avances en entrenamiento y nutrición deportiva. Nos capacitamos continuamente para ofrecerte el servicio más actualizado y de la más alta calidad.</p>
+    </div>
+</div>
+<div class="seccion-contacto">
+    <img src="{{ url_for('static', filename='images/mujerfit3.jpg') }}" alt="Contacto" class="contact-img">
+    <div class="contact-form">
+        <h2>¡Contáctanos!</h2>
+        <p>Lo que necesites, sin compromiso. Te vamos a responder a la brevedad</p>
+        <form>
+            <div class="form-row">
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="text" name="apellido" placeholder="Apellido" required>
+            </div>
+            <div class="form-row">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-row">
+                <input type="tel" name="telefono" placeholder="Teléfono" required>
+            </div>
+            <div class="form-row">
+                <textarea name="mensaje" placeholder="¿Como podemos ayudarte?" required></textarea>
+            </div>
+            <div class="form-row-button">
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="seccion-testimonios">
+    <h2>Testimonios</h2>
+    <div class="testimonio-columnas">
+        <div class="testimonio">
+            <div class="testimonio-logo">
+                <img src="{{ url_for('static', filename='images/icono-mujer1.png') }}" alt="Logo 1">
+            </div>
+            <h3>Virginia</h3>
+            <p>"No tengo más que cosas buenas para decir, amo tu buena onda Jose, y toda la pasión que le ponés a lo que hacés."</p>
+        </div>
+        <div class="testimonio">
+            <div class="testimonio-logo">
+                <img src="{{ url_for('static', filename='images/icono-hombre.png') }}" alt="Logo 2">
+            </div>
+            <h3>Renzo</h3>
+            <p>"Una genia total! Desde que empece no paro de ver cambios en mi cuerpo y en mi forma de vida. Es increible como te cambia la vida entrenar y comer sano."</p>
+        </div>
+        <div class="testimonio">
+            <div class="testimonio-logo">
+                <img src="{{ url_for('static', filename='images/icono-mujer2.png') }}" alt="Logo 3">
+            </div>
+            <h3>Juliana</h3>
+            <p>"“Realmente estoy más que felíz con el plan. Siento que era el perfecto cambio que quería y necesitaba de verdad. Estoy mas que agradecida por lo que hiciste por mi"</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function scrollToSection(sectionId) {
+        var section = document.getElementById(sectionId);
+        window.scrollTo({
+            top: section.offsetTop,
+            behavior: 'smooth'
+        });
+    }
+</script>
+{% endblock %}

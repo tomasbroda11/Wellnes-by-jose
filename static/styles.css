@@ -1,0 +1,504 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Sorts+Mill+Goudy:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@font-face {
+    font-family: 'Glacial Indifference Regular';
+    src: url('/static/fonts/glacial-indifference/GlacialIndifference-Regular.otf') format('opentype');
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+/* estilos grales*/
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+/* HEADER*/
+header {
+    background-color: #A89E96;
+    text-align: center;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1.67% 0px 1.67% ;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2em;
+}
+
+nav ul li a img {
+    vertical-align: middle;
+    width: 15%; /* Ajusta el tamaño del logo según sea necesario */
+    height: auto;
+}
+/*FOOTER*/
+.footer {
+    background-image: url('/static/images/mujer-footer.jpg');
+    background-size: cover;
+    background-position: center -40px;
+    padding: 1.67%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Alinea verticalmente el contenido del footer */
+}
+
+.logo-and-contact {
+    display: flex;
+    flex-direction: column; /* Alinea los elementos verticalmente */
+}
+
+.logo img {
+    max-width: 400px;
+    max-height: 200px;
+}
+
+.contact-info h3{
+    font-family: 'Sorts Mill Goudy', sans-serif;
+    color: white;
+    padding-left: 10.5%;
+    font-size: 36px;
+    margin: 0.58% 0;
+}
+.contact-info p {
+    color: white;
+    font-size: 24px;
+    padding-left: 10.5%;
+    padding-top: 0;
+    font-family: 'Glacial Indifference Regular', sans-serif;
+    margin: 2% 0;
+}
+.social {
+    text-align: right;
+    font-size: 36px;
+    align-self: flex-start;
+}
+
+.social p {
+    color: white;
+    margin-bottom: 1.2%;
+    font-family: 'Glacial Indifference Regular', sans-serif;
+    margin-right: 1.2%;
+}
+
+.social-icons a {
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+}
+
+.social-icons img {
+    width: 4%;
+    height: 4%;
+    margin-right: 1.2%;
+}
+
+/*PRIMERA SECCION*/
+.foto-titulo{
+    background-image: url('/static/images/mujerfit1.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* 100% del viewport height */
+    position: relative;
+
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+.overlay h1 {
+    font-family: 'Sorts Mill Goudy', serif;
+    font-size: 56px;
+    margin-bottom: 1.67%;
+}
+.btn-comenzar {
+    display: inline-block;
+    background-color: #A89E96;
+    color: black;
+    padding: 1.5% 1.67%;
+    border-radius: 7px;
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+}
+.btn-comenzar:hover {
+    background-color: #e0e997;
+}
+/* ELEGIRNOS*/
+.eligenos {
+    position: relative;
+    background-image: url('/static/images/mujerfit2.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay-transparente {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%; 
+    width: 50%; 
+    background-color: rgba(168, 158, 150, 0.7); 
+    padding: 1.67%; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+}
+
+.overlay-transparente h2 {
+    margin-top: 1.67%; 
+    margin-bottom: 1%;
+    font-size: 56px; 
+    color: white;
+}
+
+.overlay-transparente p {
+    margin: 0;
+    font-size: 30px; 
+    color: white;
+}
+
+/* SECCION COLUMNAS PQ ELEGIRNOS*/
+.sec-columnas {
+    background-color: #A89E96;
+    display: flex;
+    justify-content: space-around; /* Distribuye las columnas uniformemente */
+    padding: 3.33% 1.67%; /* Ajusta el relleno según sea necesario */
+    height: 85vh;
+}
+
+.columna {
+    flex: 1;
+    margin: 0 1.5%; /* Añade un poco de espacio entre las columnas */
+    text-align: left;
+}
+
+.columna h3 {
+    margin-top: 1%;
+    font-size: 42px;
+    font-family: 'Sorts Mill Goudy', sans-serif;
+    color: white;
+}
+
+.columna hr {
+    width: 70%;
+    margin: 0;
+    border: 0;
+    border-top: 1px solid #714531; /* Color de la línea separadora */
+}
+
+.columna p {
+    font-size: 26px;
+    font-family: 'Glacial Indifference Regular', sans-serif;
+    text-align: start;
+    color: white;
+}
+
+/* SECCIÓN CONTACTO */
+.seccion-contacto {
+    background-color: #EFE9E4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5% 1.67%;
+    position: relative;
+}
+
+.contact-img {
+    width: 40%;
+    height: auto;
+    border-radius: 35px;
+    position: absolute;
+    left: 10%;
+    transform: translateY(-30%); /*Mover la foto para arriba*/
+    z-index: 1;
+}
+
+.contact-form {
+    background-color: #A89E96;
+    color: #fff;
+    padding: 1.67%;
+    border-radius: 75px;
+    width: 50%;
+    margin-left: auto;
+    z-index: 2;
+    position: relative;
+}
+
+.contact-form h2 {
+    font-size: 36px;
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 0;
+    text-align: center;
+}
+
+.contact-form p {
+    margin: 0 0 1.67%;
+    font-size: 16px;
+    text-align: center;
+}
+
+.contact-form .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2%;
+}
+
+.contact-form .form-row input,
+.contact-form .form-row textarea {
+    flex: 1;
+    padding: 1.2%;
+    border: none;
+    border-radius: 5px;
+    margin-right: 1.2%;
+    font-size: 18px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.contact-form .form-row input[type="text"],
+.contact-form .form-row input[type="email"],
+.contact-form .form-row input[type="tel"] {
+    width: 48%;
+}
+
+.contact-form .form-row textarea {
+    width: 100%;
+    resize: vertical;
+    height: 25%;
+}
+
+.contact-form .form-row-button {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centra el botón horizontalmente */
+}
+.contact-form .form-row-button button {
+    background-color: #ffffff;
+    color: #714531;
+    border: none;
+    padding: 1.2% 1.67%;
+    font-size: 20px;
+    border-radius: 18px;
+    cursor: pointer;
+    width: auto; 
+    text-align: center;
+}
+
+.contact-form .form-row-button button:hover {
+    background-color: #e0e0e0;
+}
+
+/* SECCIÓN TESTIMONIOS */
+.seccion-testimonios {
+    background-color: #BCB5AD;
+    text-align: center;
+    padding: 3.5% 1.67%;
+    height: 75vh;
+}
+
+.seccion-testimonios h2 {
+    color: #714531;
+    font-size: 40px;
+    margin-bottom: 2.5%;
+    font-family: 'Sorts Mill Goudy', sans-serif;
+}
+
+.testimonio-columnas {
+    display: flex;
+    justify-content: space-between;
+}
+
+.testimonio {
+    flex: 1;
+    padding: 1.67%;
+    text-align: center;
+}
+
+.testimonio-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1.67%;
+}
+
+.testimonio-logo img {
+    max-width: 80px;
+    max-height: 80px;
+}
+
+.testimonio h3 {
+    color: #c36455;
+    font-size: 30px;
+    margin-bottom: 1.2%;
+}
+
+.testimonio p {
+    color: #fff;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 0.5rem 0;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-info h3, .contact-info p, .social p {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .social {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .social-icons img {
+        width: 8%;
+        height: auto;
+        margin: 0.5rem;
+    }
+
+    .foto-titulo {
+        height: auto;
+        padding: 20% 0;
+    }
+
+    .overlay h1 {
+        font-size: 2rem;
+    }
+
+    .btn-comenzar {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .eligenos {
+        flex-direction: column;
+    }
+
+    .overlay-transparente {
+        width: 100%;
+        height: auto;
+        padding: 2rem 1rem;
+    }
+
+    .overlay-transparente h2 {
+        font-size: 2rem;
+    }
+
+    .overlay-transparente p {
+        font-size: 1rem;
+    }
+
+    .sec-columnas {
+        flex-direction: column;
+        padding: 2rem 1rem;
+        height: auto;
+    }
+
+    .columna {
+        margin: 1rem 0;
+    }
+
+    .seccion-contacto {
+        flex-direction: column;
+        padding: 2rem 1rem;
+    }
+
+    .contact-img {
+        width: 80%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-30%);
+    }
+
+    .contact-form {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .contact-form h2 {
+        font-size: 1.5rem;
+    }
+
+    .contact-form p {
+        font-size: 1rem;
+    }
+
+    .seccion-testimonios {
+        height: auto;
+        padding: 2rem 1rem;
+    }
+
+    .testimonio-columnas {
+        flex-direction: column;
+    }
+
+    .testimonio {
+        margin-bottom: 2rem;
+    }
+
+    .testimonio-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .testimonio-logo img {
+        max-width: 50px;
+        max-height: 50px;
+    }
+
+    .testimonio h3 {
+        font-size: 1.2rem;
+    }
+
+    .testimonio p {
+        font-size: 1rem;
+    }
+}
