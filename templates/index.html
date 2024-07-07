@@ -6,9 +6,30 @@
 <div class="foto-titulo">
     <div class="overlay">
         <h1>Una cuestión de hábitos.</h1>
-        <a href="eligenos" class="btn-comenzar" onclick="scrollToSection('seccion1')">Comencemos ⭣</a>
+        <a href="#card-section" class="btn-comenzar" data-scroll-to="card-section">Comencemos ⭣</a>
     </div>
 </div>
+<section id="card-section" class="card-section">
+    <h2>Nuestros<br>servicios</h2>
+    <div class="card-container">
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/card-100.jpg') }}" alt="Imagen 1">
+            <h3>Plan 100% personalizado</h3>
+            <a class="btn-card btn-card-personalizado" href="servicios#plan-personalizado">Conoce más</a>
+        </div>
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/card-plan-gral.jpg') }}" alt="Plan general">
+            <h3>Plan general</h3>
+            <a class="btn-card btn-card-general" href="servicios#plan-general">Conoce más</a>
+        </div>
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/card-comida.jpg') }}" alt="Imagen 3">
+            <h3>Recetario</h3>
+            <a class="btn-card btn-card-recetario" href="servicios#recetario">Conoce más</a>
+        </div>
+    </div>
+</section>
+
 <div class="eligenos" id="eligenos">
     <div class="overlay-transparente">
         <h1>¿Por qué elegirnos?</h1><br>
@@ -40,49 +61,69 @@
         <p>Nos esforzamos por estar siempre al día con los últimos avances en entrenamiento y nutrición deportiva. Nos capacitamos continuamente para ofrecerte el servicio más actualizado y de la más alta calidad.</p>
     </div>
 </div>
-<div class="seccion-contacto">
+<div class="seccion-contacto" id="seccion-contacto">
     <img src="{{ url_for('static', filename='images/mujerfit3.jpg') }}" alt="Contacto" class="contact-img">
     <div class="contact-form">
         <h2>¡Contáctanos!</h2>
         <p>Lo que necesites, sin compromiso. Te vamos a responder a la brevedad</p>
-        <form>
+        <form method="POST" action="{{ url_for('main.home') }}">
+            {{ form.hidden_tag() }}
             <div class="form-row">
-                <input type="text" name="nombre" placeholder="Nombre" required>
-                <input type="text" name="apellido" placeholder="Apellido" required>
+                {{ form.nombre(size=20, class="form-control", placeholder="Nombre") }}
+                {% for error in form.nombre.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
             </div>
             <div class="form-row">
-                <input type="email" name="email" placeholder="Email" required>
+                {{ form.apellido(size=20, class="form-control", placeholder="Apellido",) }}
+                {% for error in form.apellido.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
             </div>
             <div class="form-row">
-                <input type="tel" name="telefono" placeholder="Teléfono" required>
+                {{ form.email(size=20, class="form-control", placeholder="Email") }}
+                {% for error in form.email.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
             </div>
             <div class="form-row">
-                <textarea name="mensaje" placeholder="¿Como podemos ayudarte?" required></textarea>
+                {{ form.telefono(size=5, class="form-control", placeholder="Teléfono") }}
+                {% for error in form.telefono.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div class="form-row">
+                {{ form.mensaje(rows=6, class="form-control", placeholder="¿Cómo podemos ayudarte?") }}
+                {% for error in form.mensaje.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
             </div>
             <div class="form-row-button">
-                <button type="submit">Enviar</button>
+                {{ form.submit(class="btn btn-primary") }}
             </div>
         </form>
     </div>
 </div>
+
+
 <div class="seccion-testimonios">
     <h2>Testimonios</h2>
     <div class="testimonio-columnas">
-        <div class="testimonio">
+        <div class="testimonio-card">
             <div class="testimonio-logo">
                 <img src="{{ url_for('static', filename='images/icono-mujer1.png') }}" alt="Logo 1">
             </div>
             <h3>Virginia</h3>
             <p>"No tengo más que cosas buenas para decir, amo tu buena onda Jose, y toda la pasión que le ponés a lo que hacés."</p>
         </div>
-        <div class="testimonio">
+        <div class="testimonio-card">
             <div class="testimonio-logo">
                 <img src="{{ url_for('static', filename='images/icono-hombre.png') }}" alt="Logo 2">
             </div>
             <h3>Renzo</h3>
             <p>"Una genia total! Desde que empece no paro de ver cambios en mi cuerpo y en mi forma de vida. Es increible como te cambia la vida entrenar y comer sano."</p>
         </div>
-        <div class="testimonio">
+        <div class="testimonio-card">
             <div class="testimonio-logo">
                 <img src="{{ url_for('static', filename='images/icono-mujer2.png') }}" alt="Logo 3">
             </div>
@@ -93,12 +134,65 @@
 </div>
 
 <script>
-    function scrollToSection(sectionId) {
-        var section = document.getElementById(sectionId);
-        window.scrollTo({
-            top: section.offsetTop,
-            behavior: 'smooth'
+    document.addEventListener('DOMContentLoaded', () => {
+        // Scroll to section with offset
+        function smoothScroll(event, targetId, offset = -200) {
+            event.preventDefault();
+            const section = document.getElementById(targetId);
+            if (section) {
+                const yOffset = offset;
+                const rect = section.getBoundingClientRect();
+                const y = rect.top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+        }
+
+        // Scroll to section for button click
+        const scrollButtons = document.querySelectorAll('[data-scroll-to]');
+        scrollButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                const targetId = button.getAttribute('data-scroll-to');
+                smoothScroll(event, targetId, -125);
+            });
         });
-    }
+
+        // Handle smooth scroll if URL contains a hash
+        if (window.location.hash) {
+            const hash = window.location.hash.substring(1);
+            smoothScroll(null, hash, -300);
+        }
+
+        // Intersection Observer for column visibility
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const columns = document.querySelectorAll('.columna');
+        columns.forEach(column => {
+            observer.observe(column);
+        });
+
+        // Check visibility for cards on scroll
+        const cards = document.querySelectorAll('.card');
+        function checkVisibility() {
+            const triggerBottom = window.innerHeight * 0.8;
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                if (cardTop < triggerBottom) {
+                    card.classList.add('card-visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', checkVisibility);
+        checkVisibility(); // Initial check
+    });
 </script>
+
+  
 {% endblock %}

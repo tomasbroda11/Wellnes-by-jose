@@ -4,27 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Personal Trainer{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
     <header>
         <nav>
             <ul>
                 <li><a href="/">Inicio</a></li>
-                <li><a href="sobremi">Sobre mí</a></li>
+                <li><a href="/sobremi">Sobre mí</a></li>
                 <li><a href="/"><img src="{{ url_for('static', filename='images/logojoseFinal.svg') }}" alt="Logo Personal Trainer"></a></li>
-                <li><a href="servicios">Servicios</a></li>
-                <li><a href="">Contacto</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Servicios &#9660;</a>
+                    <div class="dropdown-content">
+                        <a href="/servicios#plan-personalizado" class="dropdown-link">Plan personalizado</a>
+                        <a href="/servicios#recetario" class="dropdown-link">Recetario</a>
+                        <a href="/servicios#plan-general" class="dropdown-link">Plan general</a>
+                    </div>
+                </li>
+                <li id="contactButton"><a href="#seccion-contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
-
     <main>
         {% block content %}{% endblock %}
     </main>
-
     <footer class="footer">
         <div class="footer-content">
             <div class="logo-and-contact">
@@ -55,6 +64,48 @@
             </div>
         </div>
     </footer>
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            function smoothScroll(targetId, offset = -200) {
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    const rect = targetSection.getBoundingClientRect();
+                    const y = rect.top + window.pageYOffset + offset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                } else {
+                    console.error('Section not found: ' + targetId);
+                }
+            }
+
+            if (window.location.hash) {
+                const hash = window.location.hash.substring(1);
+                smoothScroll(hash, -300);
+            }
+
+            const dropdownLinks = document.querySelectorAll('.dropdown-link');
+            dropdownLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    const targetId = link.getAttribute('href').split('#')[1];
+                    event.preventDefault();
+                    if (window.location.pathname.endsWith('/servicios')) {
+                        smoothScroll(targetId);
+                    } else {
+                        window.location.href = `/servicios#${targetId}`;
+                    }
+                });
+            });
+
+            const contactLink = document.querySelector('#contactButton a');
+            contactLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                const targetId = 'seccion-contacto';
+                if (window.location.pathname === '/' || window.location.pathname.endsWith('/')) {
+                    smoothScroll(targetId, -100);
+                } else {
+                    window.location.href = `/#${targetId}`;
+                }
+            });
+        });
+    </script>
 </body>
 </html>

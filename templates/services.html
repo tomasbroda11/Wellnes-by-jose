@@ -3,6 +3,147 @@
 {% block title %}Wellness by Jose{% endblock %}
 
 {% block content %}
-<h2>SERVICIOS</h2>
-<p>Esta es la web de servicios.</p>
+<section id="plan-personalizado" class="plan-personalizado-section">
+    <div class="plan-content-left">
+        <h1>Entrenamiento 100% personalizado</h1>
+        <p>Tu camino hacia una vida más saludable comienza acá! Nuestro plan personalizado está diseñado para adaptarse a tus necesidades únicas y metas individuales.</p>
+        <button class="btn-comprar-personalizado">Comprar</button>
+        <div class="plan-cards">
+            <div class="plan-card">
+                <img class="plan-icon" src="{{ url_for('static', filename='images/mancuerna-de-biceps.png') }}" alt="Icono 1">
+                <h3>Plan de entrenamiento</h3>
+                <p>Rutina de entrenamiento completamente personalizada que se actualiza cada dos meses.</p>
+            </div>
+            <div class="plan-card">
+                <img class="plan-icon" src="{{ url_for('static', filename='images/videollamada.png') }}" alt="Icono 2">
+                <h3>Videollamada inicial</h3>
+                <p>Iniciamos con una videollamada donde nos conocemos y conversamos sobre tus objetivos específicos.</p>
+            </div>
+            <div class="plan-card">
+                <img class="plan-icon" src="{{ url_for('static', filename='images/sentadillas.png') }}" alt="Icono 3">
+                <h3>Videos demostrativos</h3>
+                <p>Te proporciono una biblioteca completa de videos demostrativos que te guiarán a través de cada ejercicio.</p>
+            </div>
+            <div class="plan-card">
+                <img class="plan-icon" src="{{ url_for('static', filename='images/Whatsapp.png') }}" alt="Icono 4">
+                <h3>Comunicación directa por Whatsapp</h3>
+                <p>Ofrecemos un número de WhatsApp exclusivo para que tengas una comunicación directa con nosotros.</p>
+            </div>
+            <div class="plan-card">
+                <img class="plan-icon" src="{{ url_for('static', filename='images/palta.png') }}" alt="Icono 5">
+                <h3>Guía de alimentación</h3>
+                <p>Incluye recomendaciones nutricionales personalizadas, ideas de menú semanal y consejos prácticos para mejorar tus hábitos alimenticios.</p>
+            </div>
+            <div class="plan-card">
+                <img class="plan-icon" src="{{ url_for('static', filename='images/lista-de-quehaceres.png') }}" alt="Icono 6">
+                <h3>Lista de super</h3>
+                <p>Lista detallada de alimentos y productos recomendados para ayudarte a mantener una despensa saludable y bien abastecida.</p>
+            </div>
+        </div>
+    </div>
+    <div class="plan-image-right">
+        <img src="{{ url_for('static', filename='images/about-me1.jpg') }}" alt="Imagen Plan Personalizado">
+    </div>
+</section>
+<section id="recetario" class="recetario-section">
+    <div class="recetario-image-left">
+        <img src="{{ url_for('static', filename='images/card-comida.jpg') }}" alt="Imagen Recetario">
+    </div>
+    <div class="recetario-content-right">
+        <h1>Recetario</h1>
+        <h2>Que incluye?</h2>
+        <div class="recetario-cards">
+            <div class="recetario-card">
+                <img class="recetario-icon" src="{{ url_for('static', filename='images/repollo.png') }}" alt="Icono 1">
+                <h3>RECETAS RICAS Y NUTRITIVAS</h3>
+                <p>Deliciosas recetas saludables y variadas. No creas que comer sano es sinoimo de no comer rico, se puede todo junto!</p>
+            </div>
+            <div class="recetario-card">
+                <img class="recetario-icon" src="{{ url_for('static', filename='images/gym-equipment.png') }}" alt="Icono 2">
+                <h3>TIPS PARA EL PRE Y POST ENTRENAMIENTO</h3>
+                <p>Las mejores comidas y snacks para tener energia durante tus entrenamientos y la recuperacion del musculo post sesion de gimnasio</p>
+            </div>
+        </div>
+        <p>Descarga nuestro recetario y empieza a disfrutar de una alimentación nutritiva sin complicaciones. ¡Nutre tu cuerpo y mente hoy mismo!
+        </p>
+        <button class="btn-explorar-recetario">Descargar</button>
+    </div>
+</section>
+<section id="plan-general" class="plan-general-section">
+    <div class="plan-general-left">
+        <h1>Plan general de entrenamiento</h1>
+        <p>¡Conoce nuestro plan que te llevara hacia un estilo de vida más saludable y activol! Este plan te brinda acceso a una variedad de recursos diseñados para ayudarte a mantener tu bienestar. </p>
+        <button class="btn-plan-general">Descargar</button>
+    </div>
+    <div class="plan-general-right">
+        <div class="general-card">
+            <img src="{{ url_for('static', filename='images/mancuerna-de-biceps.png') }}" alt="Icono 1" class="general-icon">
+            <h3>Plan de entrenamiento mensual</h3>
+            <p>Obtén acceso a una rutina de entrenamiento mensual diseñada por nosotros que te guiará a través de tus entrenamientos diarios durante todo el mes. </p>
+        </div>
+        <div class="general-card">
+            <img src="{{ url_for('static', filename='images/sentadillas.png') }}" alt="Icono 2" class="general-icon">
+            <h3>Videos demostrativos</h3>
+            <p>Descarga una carpeta digital con una colección de videos demostrativos de ejercicios</p>
+        </div>
+    </div>
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Dropdown menu toggle
+        const dropdown = document.querySelector('.dropdown');
+        dropdown.addEventListener('click', () => {
+            const dropdownContent = dropdown.querySelector('.dropdown-content');
+            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+        });
+    
+        document.addEventListener('click', (event) => {
+            if (!dropdown.contains(event.target)) {
+                dropdown.querySelector('.dropdown-content').style.display = 'none';
+            }
+        });
+    
+        // Function to perform smooth scroll
+        function smoothScroll(targetId) {
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const yOffset = -navbarHeight;
+                const rect = targetSection.getBoundingClientRect();
+                const y = rect.top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+        }
+    
+        // Event listener for dropdown links to enable smooth scroll on click
+        const links = document.querySelectorAll('.dropdown-content a');
+        links.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const targetId = link.getAttribute('href').split('#')[1];
+                const currentPath = window.location.pathname;
+    
+                if (currentPath.includes('index.html')) {
+                    smoothScroll(targetId);
+                } else {
+                    window.location.href = `index.html#${targetId}`;
+                }
+    
+                // Close dropdown after clicking
+                const dropdownContent = dropdown.querySelector('.dropdown-content');
+                dropdownContent.style.display = 'none';
+            });
+        });
+    
+        // Handle the case when the page loads with a hash
+        if (window.location.hash) {
+            const targetId = window.location.hash.substring(1);
+            smoothScroll(targetId);
+        }
+    });
+    </script>
+    
+        
+
+
 {% endblock %}
