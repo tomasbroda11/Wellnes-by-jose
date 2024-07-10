@@ -22,6 +22,7 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 
 mail.init_app(app)
+
 # Definición de vistas personalizadas para Flask-Admin
 class MyAdminIndexView(AdminIndexView):
     @expose('/')

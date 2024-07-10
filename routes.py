@@ -28,6 +28,7 @@ def home():
         msg = Message('Nuevo mensaje de contacto', 
                       recipients=['tomasbroda13@gmail.com'])  # Cambia esto por tu dirección de correo
         msg.body = f"""
+        Nuevo mensaje de contacto desde la web.
         Nombre: {nombre}
         Apellido: {apellido}
         Email: {email}
@@ -39,8 +40,7 @@ def home():
             mail.send(msg)
             flash('¡Gracias por contactarnos! Te responderemos pronto.', 'success')
         except Exception as e:
-            flash(f'Ocurrió un error al enviar el mensaje: {str(e)}', 'danger')
-
+            flash(f'Ocurrió un error al enviar el mensaje', 'danger')
         return redirect(url_for('main.home'))
 
     return render_template('index.html', form=form)

@@ -14,5 +14,5 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USE_SSL = False
     MAIL_USERNAME = 'tomasbroda13@gmail.com'
-    MAIL_PASSWORD = 'Kobe43007564'
+    MAIL_PASSWORD = 'inmv umfu fqiw lvhl'
     MAIL_DEFAULT_SENDER = 'tomasbroda13@gmail.com'
