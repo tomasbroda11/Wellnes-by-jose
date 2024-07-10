@@ -4,6 +4,7 @@ from flask_login import UserMixin
 db = SQLAlchemy()
 
 class Contact(db.Model):
+    __tablename__ = 'contact'
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(100))
     apellido = db.Column(db.String(100))

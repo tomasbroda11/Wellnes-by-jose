@@ -9,31 +9,33 @@
 <body>
     <div class="wrapper">
         <div class="container">
-          <div class="col-left">
-            <div class="login-text">
-              <h2>Bienvenida</h2>
-              <p>Acceso de administrador<br>Por favor inicie sesion</p>
+            <div class="col-left">
+                <div class="login-text">
+                    <h2>Bienvenida</h2>
+                    <p>Acceso de administrador<br>Por favor inicie sesión</p>
+                </div>
             </div>
-          </div>
-          <div class="col-right">
-            <div class="login-form">
-              <h2>Login</h2>
-              <form method="POST">
-                <p>
-                  <label for="username">Username<span>*</span></label>
-                  <input type="text" id="username" name="username" placeholder="Username or Email" required>
-                </p>
-                <p>
-                  <label for="password">Password<span>*</span></label>
-                  <input type="password" id="password" name="password" placeholder="Password" required>
-                </p>
-                <p>
-                  <input type="submit" value="Login" />
-                </p>
-              </form>
+            <div class="col-right">
+                <div class="login-form">
+                    <h2>Login</h2>
+                    <form method="POST" action="{{ url_for('main.login') }}">
+                        {{ form.hidden_tag() }}
+                        <p>
+                            <label for="username">Username<span>*</span></label>
+                            {{ form.username(size=32) }}
+                        </p>
+                        <p>
+                            <label for="password">Password<span>*</span></label>
+                            {{ form.password(size=32) }}
+                            <!-- Eliminar el ciclo de errores -->
+                        </p>
+                        <p>
+                            {{ form.submit() }}
+                        </p>
+                    </form>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
 </body>
 </html>
